@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TikTok Next 2026 趨勢報告（北美版）｜海派提提 HYPERTT 編譯</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --tt-black: #000000;
+    --tt-dark: #0a0a0a;
+    --tt-card: #161616;
+    --tt-card-hover: #1e1e1e;
+    --tt-cyan: #25F4EE;
+    --tt-red: #FE2C55;
+    --tt-white: #ffffff;
+    --tt-gray: #8a8a8a;
+    --tt-light-gray: #c0c0c0;
+    --tt-border: #2a2a2a;
+    --gradient-main: linear-gradient(135deg, #25F4EE, #FE2C55);
+    --gradient-cyan: linear-gradient(135deg, #25F4EE, #00C9DB);
+    --gradient-red: linear-gradient(135deg, #FE2C55, #FF6B81);
+    --gradient-purple: linear-gradient(135deg, #25F4EE, #a855f7, #FE2C55);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--tt-black);
+    color: var(--tt-white);
+    line-height: 1.8;
+    overflow-x: hidden;
+    font-size: 17px;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--tt-dark); }
+  ::-webkit-scrollbar-thumb { background: var(--tt-red); border-radius: 3px; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 700px 700px at 15% 25%, rgba(37,244,238,.15) 0%, transparent 70%),
+      radial-gradient(ellipse 600px 600px at 85% 75%, rgba(254,44,85,.15) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 400px at 50% 50%, rgba(168,85,247,.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-brand {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .6rem;
+  }
+  .hero-brand img {
+    height: 60px;
+    width: auto;
+    filter: brightness(1.1);
+  }
+  .hero-brand-label {
+    font-size: .85rem;
+    letter-spacing: .15em;
+    color: var(--tt-gray);
+    font-weight: 500;
+  }
+
+  .hero-eyebrow {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    color: var(--tt-light-gray);
+  }
+
+  .hero-title {
+    font-size: clamp(3.2rem, 8vw, 6.5rem);
+    font-weight: 900;
+    line-height: 1.12;
+    margin-bottom: 1.2rem;
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.15rem, 2.8vw, 1.6rem);
+    font-weight: 300;
+    color: var(--tt-light-gray);
+    max-width: 720px;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+
+  .hero-year {
+    font-size: clamp(7rem, 20vw, 16rem);
+    font-weight: 900;
+    line-height: 1;
+    opacity: .035;
+    position: absolute;
+    bottom: -1.5rem;
+    right: 2rem;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    animation: bounce 2s infinite;
+  }
+  .scroll-hint span { font-size: .8rem; color: var(--tt-gray); letter-spacing: .2em; }
+  .scroll-hint .arrow { width: 22px; height: 22px; border-right: 2px solid var(--tt-cyan); border-bottom: 2px solid var(--tt-cyan); transform: rotate(45deg); }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+
+  /* ── NAV ── */
+  .floating-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: .9rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0,0,0,.78);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--tt-border);
+    transform: translateY(-100%);
+    transition: transform .35s ease;
+  }
+  .floating-nav.visible { transform: translateY(0); }
+  .nav-brand {
+    display: flex; align-items: center; gap: .6rem;
+  }
+  .nav-brand img { height: 28px; width: auto; }
+  .nav-brand-text {
+    font-weight: 900; font-size: 1rem;
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    white-space: nowrap;
+  }
+  .nav-links { display: flex; gap: 1.8rem; flex-wrap: wrap; justify-content: flex-end; }
+  .nav-links a {
+    color: var(--tt-light-gray);
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 500;
+    transition: color .2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { color: var(--tt-cyan); }
+
+  /* ── SECTIONS ── */
+  .section {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 6rem 2.5rem;
+  }
+  .section-divider {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    height: 1px;
+    background: var(--gradient-main);
+    opacity: .2;
+  }
+
+  /* ── TAGS ── */
+  .section-tag {
+    display: inline-block;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    padding: .4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+  .tag-cyan { background: rgba(37,244,238,.1); color: var(--tt-cyan); }
+  .tag-red { background: rgba(254,44,85,.1); color: var(--tt-red); }
+  .tag-purple { background: rgba(168,85,247,.1); color: #a855f7; }
+  .tag-white { background: rgba(255,255,255,.07); color: var(--tt-white); }
+
+  .section-title {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-lead {
+    font-size: 1.25rem;
+    color: var(--tt-light-gray);
+    max-width: 780px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    line-height: 1.9;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--tt-card);
+    border: 1px solid var(--tt-border);
+    border-radius: 20px;
+    padding: 2.2rem 2.5rem;
+    margin-bottom: 1.5rem;
+    transition: border-color .3s, transform .3s;
+  }
+  .card:hover { border-color: rgba(37,244,238,.2); transform: translateY(-2px); }
+  .card h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: .8rem; }
+  .card p { color: var(--tt-light-gray); font-size: 1.1rem; line-height: 1.9; }
+
+  /* ── QUOTE ── */
+  .quote-block {
+    position: relative;
+    padding: 2.2rem 2.5rem 2.2rem 2.8rem;
+    margin: 2.5rem 0;
+    background: var(--tt-card);
+    border-radius: 20px;
+    border-left: 4px solid;
+    border-image: var(--gradient-main) 1;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--tt-white);
+    line-height: 1.9;
+  }
+  .quote-block .attribution {
+    display: block;
+    margin-top: 1rem;
+    font-size: .95rem;
+    color: var(--tt-gray);
+    font-weight: 500;
+  }
+
+  /* ── DEFINITION ── */
+  .definition-box {
+    background: var(--tt-card);
+    border: 1px solid var(--tt-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin: 2.5rem 0;
+    text-align: center;
+  }
+  .definition-box .term {
+    font-size: 2rem;
+    font-weight: 900;
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .definition-box .pos { color: var(--tt-gray); font-style: italic; font-size: 1rem; margin-top: .3rem; }
+  .definition-box .def { color: var(--tt-light-gray); margin-top: .6rem; font-size: 1.15rem; }
+
+  /* ── INFOGRAPHIC BANNER ── */
+  .info-banner {
+    background: linear-gradient(135deg, rgba(37,244,238,.08), rgba(254,44,85,.08));
+    border: 1px solid var(--tt-border);
+    border-radius: 24px;
+    padding: 3rem;
+    margin: 3rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .info-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--gradient-main);
+  }
+  .info-banner h3 {
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-bottom: .5rem;
+  }
+  .info-banner .subtitle {
+    font-size: 1.1rem;
+    color: var(--tt-gray);
+    margin-bottom: 2rem;
+  }
+
+  /* ── MEGA STAT (full-width infographic) ── */
+  .mega-stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin: 3rem 0;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--tt-border);
+  }
+  .mega-stat-item {
+    padding: 2.8rem 1.5rem;
+    text-align: center;
+    background: var(--tt-card);
+    border-right: 1px solid var(--tt-border);
+    position: relative;
+  }
+  .mega-stat-item:last-child { border-right: none; }
+  .mega-stat-item .number {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: .6rem;
+  }
+  .mega-stat-item .number.cyan { color: var(--tt-cyan); }
+  .mega-stat-item .number.red { color: var(--tt-red); }
+  .mega-stat-item .number.purple { color: #a855f7; }
+  .mega-stat-item .number.gradient {
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .mega-stat-item .label {
+    font-size: 1rem;
+    color: var(--tt-gray);
+    line-height: 1.6;
+  }
+
+  /* ── STAT GRID ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .stat-card {
+    background: var(--tt-card);
+    border: 1px solid var(--tt-border);
+    border-radius: 20px;
+    padding: 2.2rem;
+    text-align: center;
+    transition: border-color .3s, transform .3s;
+  }
+  .stat-card:hover { border-color: rgba(254,44,85,.3); transform: translateY(-3px); }
+  .stat-number {
+    font-size: 3.2rem;
+    font-weight: 900;
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+  }
+  .stat-label {
+    font-size: 1rem;
+    color: var(--tt-gray);
+    margin-top: .6rem;
+    line-height: 1.6;
+  }
+
+  /* ── ICON STAT ROW (horizontal infographic) ── */
+  .icon-stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .icon-stat {
+    background: var(--tt-card);
+    border: 1px solid var(--tt-border);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: border-color .3s, transform .3s;
+  }
+  .icon-stat:hover { border-color: rgba(37,244,238,.25); transform: translateY(-2px); }
+  .icon-stat .emoji { font-size: 2.5rem; margin-bottom: .8rem; display: block; }
+  .icon-stat .val {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--tt-cyan);
+    line-height: 1.2;
+  }
+  .icon-stat .desc {
+    font-size: .95rem;
+    color: var(--tt-gray);
+    margin-top: .4rem;
+    line-height: 1.5;
+  }
+
+  /* ── HASHTAG PILLS ── */
+  .hashtags { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
+  .hashtag {
+    display: inline-block;
+    font-size: .9rem;
+    font-weight: 600;
+    padding: .4rem 1rem;
+    border-radius: 100px;
+    background: rgba(37,244,238,.08);
+    color: var(--tt-cyan);
+    border: 1px solid rgba(37,244,238,.15);
+  }
+
+  /* ── VS TABLE ── */
+  .vs-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.5rem 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--tt-border);
+    font-size: 1.05rem;
+  }
+  .vs-table th {
+    background: var(--tt-card);
+    padding: 1rem 1.5rem;
+    font-size: .9rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--tt-border);
+  }
+  .vs-table th:first-child { color: var(--tt-gray); text-align: left; }
+  .vs-table th:last-child { color: var(--tt-cyan); text-align: left; }
+  .vs-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--tt-border);
+    background: rgba(22,22,22,.6);
+  }
+  .vs-table tr:last-child td { border-bottom: none; }
+  .vs-table td:first-child { color: var(--tt-gray); text-decoration: line-through; opacity: .55; }
+  .vs-table td:last-child { color: var(--tt-cyan); font-weight: 600; }
+
+  /* ── CASE STUDY ── */
+  .case-study {
+    background: linear-gradient(135deg, rgba(37,244,238,.04), rgba(254,44,85,.04));
+    border: 1px solid var(--tt-border);
+    border-radius: 24px;
+    padding: 3rem;
+    margin: 3rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .case-study::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--gradient-main);
+  }
+  .case-study-tag {
+    display: inline-block;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    padding: .3rem .8rem;
+    border-radius: 6px;
+    background: rgba(254,44,85,.1);
+    color: var(--tt-red);
+    margin-bottom: 1rem;
+  }
+  .case-study h4 { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--tt-white); }
+  .case-study p { color: var(--tt-light-gray); font-size: 1.1rem; margin-bottom: 1rem; line-height: 1.8; }
+
+  .case-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .case-metric {
+    padding: 1.5rem 1rem;
+    background: rgba(0,0,0,.35);
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid rgba(37,244,238,.08);
+  }
+  .case-metric .val { font-size: 2.2rem; font-weight: 900; color: var(--tt-cyan); line-height: 1.2; }
+  .case-metric .lbl { font-size: .85rem; color: var(--tt-gray); margin-top: .4rem; }
+
+  /* ── TOOL GRID ── */
+  .tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .tool-card {
+    background: var(--tt-card);
+    border: 1px solid var(--tt-border);
+    border-radius: 20px;
+    padding: 2.2rem;
+    transition: border-color .3s, transform .3s;
+  }
+  .tool-card:hover { border-color: rgba(254,44,85,.2); transform: translateY(-2px); }
+  .tool-card h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: .6rem; color: var(--tt-white); }
+  .tool-card p { font-size: 1rem; color: var(--tt-gray); line-height: 1.7; }
+
+  /* ── PRO TIP ── */
+  .pro-tip {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    background: rgba(37,244,238,.05);
+    border: 1px solid rgba(37,244,238,.12);
+    border-radius: 16px;
+    padding: 1.5rem 1.8rem;
+    margin: 2rem 0;
+    font-size: 1.05rem;
+    color: var(--tt-light-gray);
+    line-height: 1.8;
+  }
+  .pro-tip .icon {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(37,244,238,.15);
+    color: var(--tt-cyan);
+    font-size: .8rem;
+    font-weight: 900;
+  }
+
+  /* ── FORMULA ── */
+  .formula-box {
+    text-align: center;
+    padding: 3rem;
+    margin: 2.5rem 0;
+    background: var(--tt-card);
+    border: 1px solid var(--tt-border);
+    border-radius: 24px;
+  }
+  .formula {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: .05em;
+  }
+  .formula-sub {
+    font-size: 1rem;
+    color: var(--tt-gray);
+    margin-top: .8rem;
+  }
+
+  /* ── STEPS ── */
+  .steps { margin: 2.5rem 0; }
+  .step {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: var(--gradient-main);
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--tt-black);
+  }
+  .step-content h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: .4rem; }
+  .step-content p { font-size: 1.05rem; color: var(--tt-gray); line-height: 1.7; }
+
+  /* ── TOC ── */
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+    margin: 2.5rem 0;
+  }
+  .toc-item {
+    display: block;
+    text-decoration: none;
+    background: var(--tt-card);
+    border: 1px solid var(--tt-border);
+    border-radius: 18px;
+    padding: 1.8rem;
+    transition: all .3s;
+  }
+  .toc-item:hover { border-color: rgba(37,244,238,.3); transform: translateY(-3px); background: var(--tt-card-hover); }
+  .toc-num { font-size: .8rem; font-weight: 700; letter-spacing: .15em; color: var(--tt-cyan); margin-bottom: .6rem; text-transform: uppercase; }
+  .toc-title { font-size: 1.15rem; font-weight: 700; color: var(--tt-white); margin-bottom: .4rem; }
+  .toc-desc { font-size: .95rem; color: var(--tt-gray); line-height: 1.6; }
+
+  /* ── ACTION CARDS ── */
+  .action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .action-card {
+    background: var(--tt-card);
+    border: 1px solid var(--tt-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .action-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .action-card.ac-cyan::before { background: var(--gradient-cyan); }
+  .action-card.ac-red::before { background: var(--gradient-red); }
+  .action-card.ac-purple::before { background: var(--gradient-purple); }
+  .action-card h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: .8rem; }
+  .action-card .q { font-size: 1.05rem; color: var(--tt-gray); font-style: italic; margin-bottom: 1.2rem; line-height: 1.7; }
+  .action-card .action-label { font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--tt-cyan); }
+
+  /* ── FOREWORD ── */
+  .foreword { display: flex; gap: 2rem; align-items: flex-start; margin: 2.5rem 0; }
+  .foreword-avatar {
+    flex-shrink: 0;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: var(--gradient-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--tt-black);
+  }
+  .foreword-text { flex: 1; }
+  .foreword-text .name { font-weight: 700; font-size: 1.15rem; }
+  .foreword-text .role { font-size: 1rem; color: var(--tt-gray); margin-bottom: 1.2rem; }
+  .foreword-text p { color: var(--tt-light-gray); font-size: 1.1rem; margin-bottom: .8rem; line-height: 1.9; }
+
+  /* ── FLAVOR CARDS ── */
+  .flavor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .flavor-card {
+    background: var(--tt-card);
+    border: 1px solid var(--tt-border);
+    border-radius: 20px;
+    padding: 2.2rem;
+    transition: border-color .3s;
+  }
+  .flavor-card:hover { border-color: rgba(37,244,238,.2); }
+  .flavor-card h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: .6rem; }
+  .flavor-card p { font-size: 1rem; color: var(--tt-gray); margin-bottom: 1rem; line-height: 1.7; }
+
+  /* ── SEARCH PATH INFOGRAPHIC ── */
+  .search-path {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .6rem;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: var(--tt-card);
+    border-radius: 16px;
+    border: 1px solid var(--tt-border);
+  }
+  .search-node {
+    padding: .5rem 1.2rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: rgba(37,244,238,.08);
+    color: var(--tt-cyan);
+    border: 1px solid rgba(37,244,238,.15);
+  }
+  .search-arrow {
+    color: var(--tt-gray);
+    font-size: 1.2rem;
+  }
+
+  /* ── TASTEMAKER TABLE ── */
+  .tm-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+  .tm-card {
+    background: var(--tt-card);
+    border: 1px solid var(--tt-border);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+  }
+  .tm-card h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: .8rem;
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .tm-card p { font-size: .95rem; color: var(--tt-gray); line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 5rem 2.5rem;
+    color: var(--tt-gray);
+    font-size: .85rem;
+    line-height: 1.9;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 2rem;
+  }
+  .footer-brand img { height: 48px; width: auto; opacity: .7; }
+  .footer-brand-label { font-size: .9rem; color: var(--tt-light-gray); font-weight: 500; }
+
+  .source-note {
+    font-size: .85rem;
+    color: var(--tt-gray);
+    margin-top: .5rem;
+    line-height: 1.6;
+  }
+
+  .sub-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 3rem 0 1.2rem;
+  }
+
+  /* ── FADE ANIMATION ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+    .section { padding: 4rem 1.5rem; }
+    .floating-nav { padding: .7rem 1.2rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: .8rem; }
+    .foreword { flex-direction: column; align-items: center; text-align: center; }
+    .case-study { padding: 2rem; }
+    .mega-stat-row { grid-template-columns: 1fr; }
+    .mega-stat-item { border-right: none; border-bottom: 1px solid var(--tt-border); }
+    .mega-stat-item:last-child { border-bottom: none; }
+    .mega-stat-item .number { font-size: 2.8rem; }
+    .stat-number { font-size: 2.5rem; }
+    .quote-block { padding: 1.5rem; font-size: 1.1rem; }
+    .tm-grid { grid-template-columns: 1fr; }
+    .hero-brand img { height: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== FLOATING NAV ====== -->
+<nav class="floating-nav" id="floatingNav">
+  <div class="nav-brand">
+    <img src="https://hypertt.net/wp-content/uploads/2026/01/%E6%B5%B7%E6%B4%BE%E6%8F%90%E6%8F%90_%E5%8E%9F%E8%89%B2%E8%8B%B1%E6%96%87%E7%89%88_%E7%AB%96-%E5%B7%B2%E7%B7%A8%E8%BC%AF.png" alt="HYPERTT">
+    <span class="nav-brand-text">TikTok Next 2026</span>
+  </div>
+  <div class="nav-links">
+    <a href="#toc">目錄</a>
+    <a href="#theme">主題</a>
+    <a href="#signal1">真實之茶</a>
+    <a href="#signal2">好奇繞道</a>
+    <a href="#signal3">情感 ROI</a>
+    <a href="#actions">下一步</a>
+  </div>
+</nav>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero-brand">
+    <img src="https://hypertt.net/wp-content/uploads/2026/01/%E6%B5%B7%E6%B4%BE%E6%8F%90%E6%8F%90_%E5%8E%9F%E8%89%B2%E8%8B%B1%E6%96%87%E7%89%88_%E7%AB%96-%E5%B7%B2%E7%B7%A8%E8%BC%AF.png" alt="海派提提 HYPERTT">
+    <span class="hero-brand-label">海派提提 HYPERTT 編譯</span>
+  </div>
+  <div class="hero-eyebrow">TIKTOK NEXT</div>
+  <h1 class="hero-title">不可取代的<br>直覺</h1>
+  <p class="hero-subtitle">2026 趨勢報告（北美版）— 受眾將重新訓練他們不可取代的直覺，以真正的好奇心、信念和關懷來建立連結。</p>
+  <div class="hero-year">2026</div>
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<!-- ====== 3 SIGNALS OVERVIEW INFOGRAPHIC ====== -->
+<section class="section" style="padding-top: 3rem; padding-bottom: 0;">
+  <div class="fade-up">
+    <div class="mega-stat-row">
+      <div class="mega-stat-item">
+        <div class="number cyan">01</div>
+        <div class="label" style="font-size: 1.15rem; color: var(--tt-white); font-weight: 700;">真實之茶<br><span style="font-weight: 300; color: var(--tt-gray);">Reali-TEA</span></div>
+      </div>
+      <div class="mega-stat-item">
+        <div class="number red">02</div>
+        <div class="label" style="font-size: 1.15rem; color: var(--tt-white); font-weight: 700;">好奇繞道<br><span style="font-weight: 300; color: var(--tt-gray);">Curiosity Detours</span></div>
+      </div>
+      <div class="mega-stat-item">
+        <div class="number purple">03</div>
+        <div class="label" style="font-size: 1.15rem; color: var(--tt-white); font-weight: 700;">情感投資報酬率<br><span style="font-weight: 300; color: var(--tt-gray);">Emotional ROI</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TOC ====== -->
+<section class="section" id="toc">
+  <div class="fade-up">
+    <span class="section-tag tag-white">目錄</span>
+    <h2 class="section-title">本報告包含</h2>
+    <div class="toc-grid">
+      <a class="toc-item" href="#theme">
+        <div class="toc-num">主題</div>
+        <div class="toc-title">不可取代的直覺</div>
+        <div class="toc-desc">科技無法取代的東西：連結、好奇心和臨在感</div>
+      </a>
+      <a class="toc-item" href="#signal1">
+        <div class="toc-num">趨勢信號 01</div>
+        <div class="toc-title">真實之茶 Reali-TEA</div>
+        <div class="toc-desc">穿越混亂，重新校準自我，共同打造新的現實</div>
+      </a>
+      <a class="toc-item" href="#signal2">
+        <div class="toc-num">趨勢信號 02</div>
+        <div class="toc-title">好奇繞道 Curiosity Detours</div>
+        <div class="toc-desc">透過全新的發現之門，尋找新的好奇兔子洞</div>
+      </a>
+      <a class="toc-item" href="#signal3">
+        <div class="toc-num">趨勢信號 03</div>
+        <div class="toc-title">情感投資報酬率 Emotional ROI</div>
+        <div class="toc-desc">衝動敗給意圖，消費者獎勵證明「為何值得購買」的品牌</div>
+      </a>
+      <a class="toc-item" href="#actions">
+        <div class="toc-num">行動方案</div>
+        <div class="toc-title">下一步行動</div>
+        <div class="toc-desc">搶先掌握今年最大趨勢轉變的實際行動步驟</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ====== FOREWORD ====== -->
+<section class="section" id="foreword">
+  <div class="fade-up">
+    <span class="section-tag tag-white">前言</span>
+    <div class="foreword">
+      <div class="foreword-avatar">CT</div>
+      <div class="foreword-text">
+        <div class="name">Cassie Taylor</div>
+        <div class="role">全球平台與趨勢行銷負責人</div>
+        <p>當我們在 2021 年首次推出 TikTok 的趨勢方法論「文化速度（Speeds of Culture）」時，我們的平台就已經在改寫趨勢傳播的方式。社群的集體創意讓信號以前所未有的速度擴散。</p>
+        <p>如今，文化已經進入了新的檔位。它是多層次的、快速的、由迅速改變方向的人們所塑造的。這就是為什麼我們推出了新的 AI 驅動工具，幫助行銷人員更快地識別和利用趨勢。</p>
+        <p>今年的報告有了新名稱、新設計，以及比以往更多的答案。我們將洞察提煉為來年的三大用戶預測，附帶更多角度，由 TikTok 加速推動，並以獨家數據作為支撐。</p>
+        <p style="color: var(--tt-cyan); font-weight: 600; font-size: 1.2rem;">讓我們開始吧！</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ====== THEME ====== -->
+<section class="section" id="theme">
+  <div class="fade-up">
+    <span class="section-tag tag-cyan">2026 趨勢主題</span>
+    <h2 class="section-title">不可取代的直覺</h2>
+
+    <div class="definition-box">
+      <div class="term">不可取代的直覺</div>
+      <div class="pos">/名詞/</div>
+      <div class="def">科技無法取代的東西：連結、好奇心和臨在感，即使它有點混亂。</div>
+    </div>
+
+    <p class="section-lead">在 2026 年，受眾將從被動生活轉向主動創造，以真正的好奇心、信念和關懷重新訓練他們不可取代的直覺，建立人與人之間的連結。</p>
+
+    <!-- Infographic: AI + Human -->
+    <div class="info-banner">
+      <h3>由人塑造，由 AI 驅動</h3>
+      <div class="subtitle">當 AI 提供數據、人類直覺設定方向時，創意不僅能跟上文化，更能引領文化。</div>
+      <div class="mega-stat-row" style="margin: 0; border: none;">
+        <div class="mega-stat-item" style="background: transparent; border-right-color: rgba(255,255,255,.06);">
+          <div class="number gradient" style="font-size: 2.5rem;">AI</div>
+          <div class="label">驅動數據分析與模式辨識<br>即時測試趨勢假設</div>
+        </div>
+        <div class="mega-stat-item" style="background: transparent; border-right-color: rgba(255,255,255,.06);">
+          <div class="number gradient" style="font-size: 2.5rem;">Human</div>
+          <div class="label">將數據轉化為趨勢洞察<br>注入人類直覺與文化脈絡</div>
+        </div>
+        <div class="mega-stat-item" style="background: transparent;">
+          <div class="number gradient" style="font-size: 2.5rem;">Creative</div>
+          <div class="label">分鐘內從趨勢洞察<br>轉化為行銷創意</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">TikTok 工具套件</h3>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <h4>TikTok One Content Suite</h4>
+        <p>將所有提及品牌的自然內容集中到一個位置，從創作者行銷到 TikTok Shop 聯盟行銷和贏得媒體，讓你無縫地將真實 UGC 放大為 Spark Ads。</p>
+      </div>
+      <div class="tool-card">
+        <h4>Symphony Creative Studio</h4>
+        <p>生成式 AI 工具套件，大規模釋放創意潛力。用不同格式講述品牌故事，吸引受眾、防止創意疲勞，推動新的行為和銷售。</p>
+      </div>
+      <div class="tool-card">
+        <h4>TikTok Market Scope</h4>
+        <p>第一方分析平台，將受眾行為、內容表現和市場趨勢轉化為可執行的洞察。統一付費和自然數據，即時將認知度與轉化率連結。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ====== SIGNAL 1: Reali-TEA ====== -->
+<section class="section" id="signal1">
+  <div class="fade-up">
+    <span class="section-tag tag-cyan">趨勢信號 01</span>
+    <h2 class="section-title">真實之茶<br><span style="font-weight:300; font-size:.55em; color:var(--tt-gray);">Reali-TEA</span></h2>
+
+    <div class="quote-block">
+      幻想正在消退。2026 年，受眾將穿越混亂，重新校準自我，共同打造新的現實。
+    </div>
+
+    <div class="card">
+      <h3>品牌人性化不僅是 AI 頭像</h3>
+      <p>品牌人性化是傾聽、學習和分享真實故事——把所有細節都說出來（spill the tea），讓人們了解大家真正的感受。TikTok 受眾已經從美化生活轉向擁抱 #TheGreatLockIn。安靜離職已經變成了大聲崩裂：設立界線、守護內心平靜、大聲追逐熱情。</p>
+    </div>
+
+    <!-- Infographic: Past vs Future -->
+    <div class="info-banner">
+      <h3>文化風向轉變</h3>
+      <div class="subtitle">受眾正在將日常瑣事轉變為共享的幽默、慶祝和產生共鳴的時刻</div>
+      <table class="vs-table" style="text-align: left;">
+        <thead><tr><th>已過時</th><th>正在興起</th></tr></thead>
+        <tbody>
+          <tr><td>#delulu 妄想系</td><td>#lockedin 全力以赴（64.8 萬篇貼文）</td></tr>
+          <tr><td>#romanticizing 浪漫化</td><td>#hygiene 衛生護理（69.2 萬篇貼文）</td></tr>
+          <tr><td>#digitalescapism 數位逃避主義</td><td>#joblife 工作生活（23.5 萬篇貼文）</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-heading">對品牌的意義</h3>
+    <div class="card">
+      <h3>行銷人員重點提醒</h3>
+      <p>你的創意行銷活動中，哪些部分可以靈活調整以貼近文化「茶」（八卦／真實話題）？使用我們的工具，在接近上線時保持對不斷演變的語言和美學的敏感度。</p>
+    </div>
+    <div class="card">
+      <h3>立即行動</h3>
+      <p>前往真實對話發生的地方。TikTok One Insights Spotlight 和 TikTok Market Scope 等工具可以即時追蹤受眾情緒。先傾聽，然後創作能以同理心和機智反映受眾情感的內容。</p>
+    </div>
+
+    <div class="pro-tip">
+      <div class="icon">PRO</div>
+      <div>定期查看 TikTok Market Scope 中的「垂直領域洞察」，即時掌握您所在垂直領域的關鍵字、標籤、創作者和搜尋趨勢。</div>
+    </div>
+
+    <!-- Flavors -->
+    <h3 class="sub-heading">熱門風味 — 新興文化圈</h3>
+    <p style="font-size: 1rem; color: var(--tt-gray); margin-bottom: 1.5rem;">透過追蹤關鍵字和標籤增長而形成，揭示受眾行為的走向。</p>
+
+    <div class="flavor-grid">
+      <div class="flavor-card">
+        <h4>被迫全力以赴 Forced to Lock In</h4>
+        <p>當日常作息被拉到極限時，受眾透過分享智勝會議、排滿的行程和週日恐懼症的技巧來一起重新校準。</p>
+        <div class="hashtags">
+          <span class="hashtag">#sundayscaries</span>
+          <span class="hashtag">#healingseason</span>
+          <span class="hashtag">#corporatemaxxing</span>
+        </div>
+      </div>
+      <div class="flavor-card">
+        <h4>文化屬於我 Culture For Me</h4>
+        <p>TikTok 已成為自己的第三文化空間，傳統、背景和社群碰撞，創造出既共享又嶄新的事物。</p>
+        <div class="hashtags">
+          <span class="hashtag">#thirdculture</span>
+          <span class="hashtag">#kwave</span>
+          <span class="hashtag">#expat</span>
+        </div>
+      </div>
+      <div class="flavor-card">
+        <h4>留言反應堆疊 Comment React Stack</h4>
+        <p>TikTok 留言照片反應勝過千言萬語。受眾用分享的表情照片在 TikTok 上復興迷因，在留言區創造文化。</p>
+        <div class="hashtags">
+          <span class="hashtag">#meme</span>
+          <span class="hashtag">#photocomment</span>
+        </div>
+      </div>
+      <div class="flavor-card">
+        <h4>發現第二帳號 Second Account Found</h4>
+        <p>有策略的品牌和創作者正在打破單一形象的模式，推出新帳號來展示不同面向。</p>
+        <div class="hashtags">
+          <span class="hashtag">#drafts</span>
+          <span class="hashtag">#unselfishvlog</span>
+          <span class="hashtag">#advice</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats infographic -->
+    <h3 class="sub-heading">數據亮點</h3>
+    <div class="mega-stat-row">
+      <div class="mega-stat-item">
+        <div class="number gradient">1.5x</div>
+        <div class="label">千禧一代和 Z 世代因社群而嘗試新品牌的可能性</div>
+      </div>
+      <div class="mega-stat-item">
+        <div class="number gradient">1.5x</div>
+        <div class="label">互動式廣告帶來的重複購買可能性</div>
+      </div>
+      <div class="mega-stat-item">
+        <div class="number gradient">11s+</div>
+        <div class="label">即時頁面的出色平均停留時間</div>
+      </div>
+    </div>
+    <p class="source-note">來源：TikTok Marketing Science 全球用戶長期價值研究 2025（美國結果），由 Kantar 執行</p>
+
+    <!-- Case Study: Knorr -->
+    <div class="case-study">
+      <div class="case-study-tag">案例研究</div>
+      <h4>Knorr 的愛情語言 — 用料理烹煮連結</h4>
+      <p>Knorr 切入了 Z 世代重新定義的戀愛規範，利用 TikTok 展示使用其產品烹飪象徵著自信、體貼和現代魅力。由創作者主導的內容展現了真實的加拿大人分享約會中的「綠旗」訊號，自然地將 Knorr 融入對話中。</p>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <div class="val">168 萬</div>
+          <div class="lbl">觸及用戶</div>
+        </div>
+        <div class="case-metric">
+          <div class="val">1,700 萬+</div>
+          <div class="lbl">影片觀看次數</div>
+        </div>
+        <div class="case-metric">
+          <div class="val">13%</div>
+          <div class="lbl">發現到轉化比率</div>
+        </div>
+        <div class="case-metric">
+          <div class="val">12%</div>
+          <div class="lbl">轉化提升</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ====== SIGNAL 2: Curiosity Detours ====== -->
+<section class="section" id="signal2">
+  <div class="fade-up">
+    <span class="section-tag tag-red">趨勢信號 02</span>
+    <h2 class="section-title">好奇繞道<br><span style="font-weight:300; font-size:.55em; color:var(--tt-gray);">Curiosity Detours</span></h2>
+
+    <div class="quote-block">
+      2026 年，好奇心成為新的貨幣，受眾將更深入地投入全新的發現旅程。
+    </div>
+
+    <div class="card">
+      <p>我們的社群發現自己過度依賴科技從 A 點到 B 點，卻錯過了中間所有令人興奮的發現。但 TikTok 上的行為正在轉變。受眾帶著意圖來到平台，帶著好奇心離開，找到可信賴的、意想不到的答案，開啟新的兔子洞。</p>
+    </div>
+
+    <div class="card">
+      <p>在 TikTok 上搜尋就像一次出遊——帶著一個計畫出發，卻展開了無盡的驚喜。你為了一件事而來，卻帶著 #datingtips、#cookinghacks 和 #storytimes 離開。</p>
+    </div>
+
+    <!-- BIG stats infographic -->
+    <div class="info-banner">
+      <h3>TikTok 搜尋行為數據</h3>
+      <div class="subtitle">搜尋不只是找答案，更是開啟發現之旅</div>
+      <div class="mega-stat-row" style="margin: 0; border: none;">
+        <div class="mega-stat-item" style="background: transparent; border-right-color: rgba(255,255,255,.06);">
+          <div class="number cyan" style="font-size: 4rem;">2/3</div>
+          <div class="label">搜尋用戶因能發現搜尋內容之外的有用事物而使用 TikTok</div>
+        </div>
+        <div class="mega-stat-item" style="background: transparent; border-right-color: rgba(255,255,255,.06);">
+          <div class="number red" style="font-size: 4rem;">40%+</div>
+          <div class="label">TikTok 每日搜尋量<br>年成長率（數十億次/日）</div>
+        </div>
+        <div class="mega-stat-item" style="background: transparent;">
+          <div class="number purple" style="font-size: 4rem;">1/4</div>
+          <div class="label">用戶打開 App 後<br>30 秒內就開始搜尋</div>
+        </div>
+      </div>
+    </div>
+    <p class="source-note">來源：TikTok Marketing Science 全球搜尋未來研究 2025（美國和加拿大結果），由 WARC 執行；TikTok 內部數據</p>
+
+    <h3 class="sub-heading">對品牌的意義</h3>
+    <div class="card">
+      <h3>行銷人員重點提醒</h3>
+      <p>這不是要擴大吸引力，而是要在核心品類之外有意義地出現。使用 TikTok 來識別令人驚喜的相鄰空間、小眾社群或與你品牌身份自然契合的文化時刻。</p>
+    </div>
+    <div class="card">
+      <h3>立即行動</h3>
+      <p>使用 TikTok One Content Suite 深入挖掘自然品牌提及，了解社群實際上如何談論你的品牌。與創作者合作，將真實內容轉化為付費行銷活動。</p>
+    </div>
+
+    <div class="pro-tip">
+      <div class="icon">PRO</div>
+      <div>使用 TikTok One Content Suite 作為搜尋洞察的來源——它能呈現的結果比平台上手動搜尋多出 <strong>44 倍</strong>。</div>
+    </div>
+
+    <!-- Case Study: Perfume search path -->
+    <div class="case-study">
+      <div class="case-study-tag">案例研究</div>
+      <h4>跟著香氣走 — TikTok Market Scope 如何描繪香水探索旅程</h4>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>從 TikTok Market Scope 開始</h4>
+            <p>分析美妝垂直領域的全球熱門搜尋，了解消費者最好奇什麼。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>識別領先者</h4>
+            <p>「香水」脫穎而出，顯示出對香氛的強烈且持續增長的興趣。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>擴大視角</h4>
+            <p>檢視相關搜尋詞，揭示 TikTok 上香水背後更廣泛的動機和發現旅程。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>建立脈絡</h4>
+            <p>描繪用戶在搜尋什麼、為什麼以及如何在平台上探索香氛。</p>
+          </div>
+        </div>
+      </div>
+      <!-- Search path visual -->
+      <h4 style="margin-top: 1.5rem; font-size: 1.1rem;">搜尋路徑</h4>
+      <div class="search-path">
+        <span class="search-node">香水</span>
+        <span class="search-arrow">&rarr;</span>
+        <span class="search-node">女士香水</span>
+        <span class="search-arrow">&rarr;</span>
+        <span class="search-node">約會之夜</span>
+        <span class="search-arrow">&rarr;</span>
+        <span class="search-node">第一次約會點子</span>
+      </div>
+      <div class="search-path">
+        <span class="search-node">香水</span>
+        <span class="search-arrow">&rarr;</span>
+        <span class="search-node">工作場合</span>
+        <span class="search-arrow">|</span>
+        <span class="search-node">BookTok</span>
+        <span class="search-arrow">|</span>
+        <span class="search-node">護膚</span>
+      </div>
+    </div>
+
+    <!-- Case Study: Duracell -->
+    <div class="case-study">
+      <div class="case-study-tag">案例研究</div>
+      <h4>從電池到偏見 — Duracell 意想不到的 K-Pop 連結</h4>
+      <p>Duracell 透過追蹤 TikTok 搜尋旅程，發現了電池與 K-Pop 社群之間意想不到的連結——K-Pop 粉絲依靠 Duracell 來為發光應援棒供電。這個小眾發現已成為強大的新增長受眾。</p>
+      <div class="quote-block" style="margin-top: 1.5rem;">
+        「在所有市場中，我們的粉絲增長達到了 483%，其中 K-Pop 扮演了重要角色。找到一個我們品牌可以真實參與的受眾和趨勢，回報是巨大的。」
+        <span class="attribution">— Christina Miller，VML EMEA 首席社群長</span>
+      </div>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <div class="val">483%</div>
+          <div class="lbl">全市場粉絲增長</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ====== SIGNAL 3: Emotional ROI ====== -->
+<section class="section" id="signal3">
+  <div class="fade-up">
+    <span class="section-tag tag-purple">趨勢信號 03</span>
+    <h2 class="section-title">情感投資報酬率<br><span style="font-weight:300; font-size:.55em; color:var(--tt-gray);">Emotional ROI</span></h2>
+
+    <div class="quote-block">
+      2026 年，衝動將敗給意圖，消費者會獎勵那些先證明「為何值得購買」的品牌。
+    </div>
+
+    <div class="card">
+      <p>消費者可能在削減「非必需品」開支，但他們同時也在擴大什麼算是「必需品」的範疇——而情感正在劃定這條界線。不再僅僅是買最便宜的洗髮精；而是跑到 TikTok 去找真正適合你髮質的洗髮精，或者把做麵包變成一種支持身心健康的儀式。</p>
+    </div>
+
+    <div class="card">
+      <p>購買決策越來越多地經過預先驗證。人們可能從 AI 獲取數據，但他們來 TikTok 是為了人性的火花：在按下「購買」之前，從最喜愛的品味引領者那裡獲得購物的喜悅、發現和驚喜。</p>
+    </div>
+
+    <!-- Past vs Future infographic -->
+    <div class="info-banner">
+      <h3>信任轉移：從網紅到品味引領者</h3>
+      <table class="vs-table" style="text-align: left;">
+        <thead><tr><th>已過時</th><th>正在興起</th></tr></thead>
+        <tbody>
+          <tr><td>#viralbuy 病毒式購買</td><td>#tastemakers 品味引領者</td></tr>
+          <tr><td>#influencers 網紅</td><td>品味引領者驅動的信任經濟</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="definition-box">
+      <div class="term">品味引領者 Tastemakers</div>
+      <div class="pos">/名詞/</div>
+      <div class="def">決定或影響什麼是或將成為流行趨勢的人。</div>
+    </div>
+
+    <!-- Tastemaker checklist -->
+    <h3 class="sub-heading">你是品味引領者嗎？</h3>
+    <div class="tm-grid">
+      <div class="tm-card">
+        <h4>基礎自然受眾</h4>
+        <p>你想服務的社群是誰？你如何持續地為他們提供真正的價值並贏得信任？</p>
+      </div>
+      <div class="tm-card">
+        <h4>善用工具了解受眾</h4>
+        <p>你是否在使用受眾工具（如 Creator Search Insights、TikTok Next 趨勢預測）來發現粉絲真正是誰？</p>
+      </div>
+      <div class="tm-card">
+        <h4>精選合作夥伴</h4>
+        <p>你是否與真正契合你的生活方式、內容和社群的品牌和創作者合作？</p>
+      </div>
+    </div>
+
+    <!-- Formula -->
+    <h3 class="sub-heading">為何購買公式</h3>
+    <div class="formula-box">
+      <div class="formula">為何購買 = 2(E&sup2;) + T</div>
+      <div class="formula-sub">E&sup2; = 擴大的必需品 &times; 證據經濟 &nbsp;|&nbsp; T = 品味引領者</div>
+    </div>
+
+    <!-- Formula breakdown infographic -->
+    <div class="icon-stat-row">
+      <div class="icon-stat">
+        <span class="emoji" style="font-size: 2rem; background: var(--gradient-cyan); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">E&sup2;</span>
+        <div class="val" style="font-size: 1.3rem; color: var(--tt-cyan);">擴大的必需品</div>
+        <div class="desc">TikTok 受眾的必需品圍繞著新的健康目標</div>
+      </div>
+      <div class="icon-stat">
+        <span class="emoji" style="font-size: 2rem; background: var(--gradient-red); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">E&sup2;</span>
+        <div class="val" style="font-size: 1.3rem; color: var(--tt-red);">證據經濟</div>
+        <div class="desc">TikTok 留言區是社群評價的可信來源</div>
+      </div>
+      <div class="icon-stat">
+        <span class="emoji" style="font-size: 2rem; background: var(--gradient-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">T</span>
+        <div class="val" style="font-size: 1.3rem; color: #a855f7;">品味引領者</div>
+        <div class="desc">創作者正透過故事講述贏得青睞</div>
+      </div>
+    </div>
+
+    <!-- 3 comparison tables -->
+    <h3 class="sub-heading">擴大的必需品</h3>
+    <table class="vs-table">
+      <thead><tr><th>過時 &times;</th><th>趨勢 &check;</th></tr></thead>
+      <tbody>
+        <tr><td>因為它可愛</td><td>因為它帶給我喜悅</td></tr>
+        <tr><td>2 小時健身房訓練</td><td>生活型態健身會員——可以運動也可以遠端工作</td></tr>
+        <tr><td>昂貴的聚餐帳單</td><td>在家舉辦主題晚餐派對</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">證據經濟</h3>
+    <table class="vs-table">
+      <thead><tr><th>過時 &times;</th><th>趨勢 &check;</th></tr></thead>
+      <tbody>
+        <tr><td>「爆紅」</td><td>「使用這個產品的第 36 天」</td></tr>
+        <tr><td>刻意擺拍的場景</td><td>真實世界的測試</td></tr>
+        <tr><td>複製貼上的宣稱</td><td>從留言區眾包評價</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">品味引領者</h3>
+    <table class="vs-table">
+      <thead><tr><th>過時 &times;</th><th>趨勢 &check;</th></tr></thead>
+      <tbody>
+        <tr><td>「炒作」</td><td>「最多人推薦」</td></tr>
+        <tr><td>一般生活方式</td><td>小眾系列內容</td></tr>
+        <tr><td>高粉絲數</td><td>高留言互動率</td></tr>
+      </tbody>
+    </table>
+
+    <div class="pro-tip" style="margin-top: 2.5rem;">
+      <div class="icon">!</div>
+      <div><strong>行銷人員重點提醒：</strong>加入情感 ROI 數學俱樂部。你提供基於他們新現實的「為什麼」，然後他們會自己處理「怎麼合理」的部分。</div>
+    </div>
+
+    <h3 class="sub-heading">對品牌的意義</h3>
+    <div class="card">
+      <h3>行銷人員重點提醒</h3>
+      <p>不要讓銷售壓力外露。消費者正在重新定義什麼是必需品——不是以價格，而是以意義、喜悅和歸屬感。證明「為何值得購買」意味著將你的產品錨定在他們的身份認同、社群和帶來喜悅的時刻中。</p>
+    </div>
+    <div class="card">
+      <h3>立即行動</h3>
+      <p>使用 Symphony Creative Studio，快速將單一素材改編為不同語言、格式和風格——讓你的創意滿足不同受眾的情感 ROI。試試 ASMR 風格的視覺鉤子、溫馨的遊戲場景或多樣化的旁白。</p>
+    </div>
+
+    <div class="pro-tip">
+      <div class="icon">PRO</div>
+      <div>使用這些快速、低成本的概念來指導和演進你更廣泛的創意策略。</div>
+    </div>
+
+    <!-- Case Study: Ashley -->
+    <div class="case-study">
+      <div class="case-study-tag">案例研究</div>
+      <h4>從瀏覽到購買 — Ashley Canada 推動高價值績效</h4>
+      <p>Ashley Canada 使用 TikTok 優先的內容，在真實的居家環境中展示家具，從多角度呈現產品，以契合消費者的意圖和情感。透過運用 Smart+，品牌動態地向潛在客戶推送最相關的內容。</p>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <div class="val">191%</div>
+          <div class="lbl">網站 ROAS 提升</div>
+        </div>
+        <div class="case-metric">
+          <div class="val">-58%</div>
+          <div class="lbl">每次獲客成本降低</div>
+        </div>
+        <div class="case-metric">
+          <div class="val">533%</div>
+          <div class="lbl">加入購物車率增加</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ====== NEXT STEPS ====== -->
+<section class="section" id="actions">
+  <div class="fade-up">
+    <span class="section-tag tag-white">下一步行動</span>
+    <h2 class="section-title">訓練你的<br>不可取代的直覺</h2>
+
+    <div class="action-grid">
+      <div class="action-card ac-cyan">
+        <h4>真實之茶 Reali-TEA</h4>
+        <div class="q">你將如何理解受眾新現實的各種風味，以更好地反映他們今天的感受？</div>
+        <div class="action-label">趨勢信號 01</div>
+      </div>
+      <div class="action-card ac-red">
+        <h4>好奇繞道 Curiosity Detours</h4>
+        <div class="q">受眾正在走什麼意想不到的路徑來發現你的品牌？你能提供什麼讓他們的繞道值得停留？</div>
+        <div class="action-label">趨勢信號 02</div>
+      </div>
+      <div class="action-card ac-purple">
+        <h4>情感 ROI Emotional ROI</h4>
+        <div class="q">你的品牌如何透過意義、證據和品味引領者來證明超越價格的真實日常價值？</div>
+        <div class="action-label">趨勢信號 03</div>
+      </div>
+    </div>
+
+    <!-- Playbook -->
+    <h3 class="sub-heading">實戰範例：食品飲料行業</h3>
+    <div class="info-banner" style="text-align: left;">
+      <div class="steps" style="margin: 0;">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>從洞察出發</h4>
+            <p>從 TikTok Market Scope 中識別食品飲料品類的熱門標籤。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>進入探索</h4>
+            <p>深入了解 #booktok。在 TikTok One Content Suite 中搜尋同時提及品牌和「booktok」的社群影片。</p>
+          </div>
+        </div>
+        <div class="step" style="margin-bottom: 0;">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>轉化為策略</h4>
+            <p>使用 Symphony Creative Studio 的文字轉影片功能在幾分鐘內生成影片概念。提示範例：溫暖晨光色調的舒適廚房場景，桌上有一隻貓、一本書和一杯茶，雙手正從袋中取出一個新鮮可頌。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Learning resources -->
+    <h3 class="sub-heading">學習資源</h3>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <h4>TikTok Academy</h4>
+        <p>透過 POV 和 Create 影片系列，深入了解趨勢和解決方案。</p>
+      </div>
+      <div class="tool-card">
+        <h4>TikTok Next Hub</h4>
+        <p>探索互動式網頁體驗，以更直覺的方式了解新興趨勢。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="footer-brand">
+    <img src="https://hypertt.net/wp-content/uploads/2026/01/%E6%B5%B7%E6%B4%BE%E6%8F%90%E6%8F%90_%E5%8E%9F%E8%89%B2%E8%8B%B1%E6%96%87%E7%89%88_%E7%AB%96-%E5%B7%B2%E7%B7%A8%E8%BC%AF.png" alt="海派提提 HYPERTT">
+    <span class="footer-brand-label">海派提提 HYPERTT 編譯</span>
+  </div>
+  <p style="margin-bottom: 1.5rem; font-size: 1rem; color: var(--tt-light-gray);">TikTok Next 2026 趨勢報告（北美版）</p>
+  <p>本文件為 TikTok Inc. 的財產，僅為資訊目的而準備。接收者必須對本文件及其中包含的任何資訊嚴格保密。TikTok Inc. 及其任何關聯公司均不對本文件中包含的資訊的準確性或完整性作出任何明示或暗示的陳述或保證。過去的表現不保證或預測未來的表現。結果可能因情況而異。</p>
+  <p style="margin-top: 1.5rem; color: var(--tt-gray);">中文翻譯僅供參考</p>
+</footer>
+
+<!-- ====== JS ====== -->
+<script>
+  const nav = document.getElementById('floatingNav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > window.innerHeight * 0.6) {
+      nav.classList.add('visible');
+    } else {
+      nav.classList.remove('visible');
+    }
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
