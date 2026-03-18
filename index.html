@@ -8,17 +8,18 @@
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Noto+Serif+TC:wght@300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
   :root {
-    --bg: #0B0A09;
-    --surface: #131211;
-    --surface-2: #1A1918;
-    --text: #E8E4DF;
-    --text-muted: #918B85;
-    --text-dim: #87817B;
+    --bg: #010101;
+    --surface: #121212;
+    --surface-2: #1A1A1A;
+    --text: #FFFFFF;
+    --text-muted: #A0A0A0;
+    --text-dim: #6B6B6B;
     --accent: #FE2C55;
+    --accent-2: #25F4EE;
     --accent-dim: rgba(254,44,85,.08);
-    --border: #1F1E1C;
-    --border-light: #2A2826;
-    --warm: #C4B5A3;
+    --accent-2-dim: rgba(37,244,238,.08);
+    --border: #222222;
+    --border-light: #333333;
     --serif: 'Cormorant Garamond', 'Noto Serif TC', Georgia, serif;
     --sans: 'Outfit', 'Noto Sans TC', sans-serif;
     --serif-tc: 'Noto Serif TC', serif;
@@ -88,7 +89,7 @@
     top: 0; left: 0; right: 0;
     z-index: 100;
     padding: 1rem 0;
-    background: rgba(11,10,9,.85);
+    background: rgba(1,1,1,.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
@@ -239,7 +240,7 @@
     font-family: var(--serif);
     font-size: clamp(5rem, 12vw, 9rem);
     font-weight: 300;
-    color: #655F5A;
+    color: #3A3A3A;
     line-height: 1;
     margin-bottom: -1.5rem;
     position: relative;
@@ -379,6 +380,7 @@
     letter-spacing: -.03em;
   }
   .bento-num.red { color: var(--accent); }
+  .bento-num.cyan { color: var(--accent-2); }
   .bento-label {
     font-size: .9rem;
     color: var(--text-muted);
@@ -847,11 +849,22 @@
   .fw-role { font-size: .9rem; color: var(--text-dim); margin-bottom: 1rem; }
   .fw-body p { color: var(--text-muted); font-size: 1rem; margin-bottom: .6rem; line-height: 1.9; }
 
+  /* ── CYAN ACCENTS ── */
+  .hero-meta .dot.cyan { background: var(--accent-2); }
+  .vs th:last-child { color: var(--accent-2); }
+  .action-item:nth-child(2)::before { background: var(--accent-2); }
+  .toc-link:nth-child(even) .toc-n { color: var(--accent-2); }
+  .pull-quote.cyan::before { background: var(--accent-2); }
+  .sect-num.cyan { color: var(--accent-2); opacity: .3; }
+  .tool-row--2col { grid-template-columns: repeat(2, 1fr); }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     .bento, .tool-row, .action-row, .tm-row { grid-template-columns: 1fr; }
+    .tool-row--2col { grid-template-columns: 1fr; }
     .bento-cell.span-2 { grid-column: span 1; }
     .flavors { grid-template-columns: 1fr; }
+    .bento, .tool-row, .action-row, .tm-row, .flavors { gap: 2px; }
     .metrics { flex-direction: column; }
     .metric { border-right: none; border-bottom: 1px solid var(--border); padding: 1rem 0; }
     .metric:last-child { border-bottom: none; }
@@ -859,28 +872,42 @@
     .footer-inner { flex-direction: column; }
     .footer-legal { text-align: left; }
     .path { flex-direction: column; align-items: flex-start; }
-    .nav-links { gap: .1rem; }
+    .nav .container { flex-wrap: wrap; justify-content: center; gap: .3rem; }
+    .nav-links { gap: .1rem; flex-wrap: wrap; justify-content: center; }
     .nav-links a { font-size: .75rem; padding: .5rem .5rem; }
     .sect-num { font-size: clamp(4rem, 10vw, 6rem); }
   }
 
+  @media (max-width: 600px) {
+    .hero-title { font-size: clamp(2.4rem, 9vw, 3rem); }
+    .sect-num { font-size: clamp(3.5rem, 9vw, 5rem); }
+    .sect-title { font-size: clamp(1.8rem, 4vw, 2.2rem); }
+    .pull-quote { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+    .formula-text { font-size: clamp(1.4rem, 3.5vw, 2rem); }
+    .container { padding: 0 1.2rem; }
+  }
+
   @media (max-width: 480px) {
     body { font-size: 16px; }
-    .nav .container { flex-wrap: wrap; justify-content: center; gap: .3rem; }
     .nav-logo { width: 100%; justify-content: center; }
-    .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; }
+    .nav-links { width: 100%; justify-content: center; }
     .nav-links a { font-size: .78rem; }
     .hero-scroll { display: none; }
     .case-label { font-size: .75rem; }
-    .hero-title { font-size: 2.6rem; }
+    .hero { min-height: 100svh; justify-content: center; padding-top: 2rem; padding-bottom: 4rem; }
+    .hero-title { font-size: clamp(2.2rem, 8vw, 2.6rem); }
+    .hero-desc { font-size: 1rem; }
     .sect-title { font-size: 1.8rem; }
     .pull-quote { font-size: 1.2rem; }
     .bento-num { font-size: 2.5rem; }
     .case h4 { font-size: 1.15rem; }
     .toc-list { grid-template-columns: 1fr; }
-    .tool-row[style] { grid-template-columns: 1fr !important; }
     .hero-brand { position: relative; top: auto; left: auto; margin-bottom: 2rem; }
-    .hero { justify-content: center; padding-top: 2rem; padding-bottom: 4rem; }
+    .vs { min-width: 0; font-size: .95rem; }
+    .vs td { padding-right: 1rem; }
+    .footer-legal { text-align: center; }
+    .footer-brand { justify-content: center; }
+    .footer { padding: 3rem 0; }
   }
 </style>
 </head>
@@ -909,7 +936,7 @@
     <img src="https://hypertt.net/wp-content/uploads/2026/01/%E6%B5%B7%E6%B4%BE%E6%8F%90%E6%8F%90_%E5%8E%9F%E8%89%B2%E8%8B%B1%E6%96%87%E7%89%88_%E7%AB%96-%E5%B7%B2%E7%B7%A8%E8%BC%AF.png" alt="海派提提 HYPERTT">
     <span class="hero-brand-text">海派提提 HYPERTT 編譯</span>
   </div>
-  <div class="hero-meta">TikTok Next <span class="dot"></span> 2026 <span class="dot"></span> 北美版</div>
+  <div class="hero-meta">TikTok Next <span class="dot"></span> 2026 <span class="dot cyan"></span> 北美版</div>
   <h1 class="hero-title">不可取代的<br><span class="accent-line">直覺</span></h1>
   <p class="hero-desc">受眾將重新訓練他們不可取代的直覺，以真正的好奇心、信念和關懷來建立連結。</p>
   <div class="hero-scroll">Scroll</div>
@@ -1114,12 +1141,12 @@
 <!-- SIGNAL 2 -->
 <section class="sect container" id="s2">
   <div class="reveal">
-    <div class="sect-num">02</div>
+    <div class="sect-num cyan">02</div>
     <div class="sect-label">趨勢信號</div>
     <h2 class="sect-title">好奇繞道</h2>
     <div class="sect-title-en">Curiosity Detours</div>
 
-    <div class="pull-quote">2026 年，好奇心成為新的貨幣，受眾將更深入地投入全新的發現旅程。</div>
+    <div class="pull-quote cyan">2026 年，好奇心成為新的貨幣，受眾將更深入地投入全新的發現旅程。</div>
 
     <p class="prose">受眾帶著意圖來到平台，帶著好奇心離開，找到可信賴的、意想不到的答案，開啟新的兔子洞。在 TikTok 上搜尋就像一次出遊——帶著一個計畫出發，卻展開了無盡的驚喜。</p>
 
@@ -1130,7 +1157,7 @@
         <div class="bento-label">搜尋用戶因能發現搜尋內容之外的有用事物而使用 TikTok</div>
       </div>
       <div class="bento-cell center">
-        <div class="bento-num">40%+</div>
+        <div class="bento-num cyan">40%+</div>
         <div class="bento-label">TikTok 每日搜尋量年成長率（數十億次/日）</div>
       </div>
       <div class="bento-cell center">
@@ -1247,7 +1274,7 @@
         <div class="bento-label">TikTok 受眾的必需品圍繞著新的健康目標</div>
       </div>
       <div class="bento-cell">
-        <div class="bento-title" style="color: var(--accent);">E&sup2; 證據經濟</div>
+        <div class="bento-title" style="color: var(--accent-2);">E&sup2; 證據經濟</div>
         <div class="bento-label">TikTok 留言區是社群評價的可信來源</div>
       </div>
       <div class="bento-cell">
@@ -1338,7 +1365,7 @@
     </div>
 
     <h3 class="sh">學習資源</h3>
-    <div class="tool-row" style="grid-template-columns: repeat(2, 1fr);">
+    <div class="tool-row tool-row--2col">
       <div class="tool-item">
         <h4>TikTok Academy</h4>
         <p>透過 POV 和 Create 影片系列，深入了解趨勢和解決方案。</p>
