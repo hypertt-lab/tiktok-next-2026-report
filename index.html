@@ -769,13 +769,13 @@
   }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── RESPONSIVE ── */
+  /* ── RESPONSIVE: TABLET ── */
   @media (max-width: 768px) {
     body { font-size: 16px; }
     .section { padding: 4rem 1.5rem; }
     .floating-nav { padding: .7rem 1.2rem; }
     .nav-links { gap: 1rem; }
-    .nav-links a { font-size: .8rem; }
+    .nav-links a { font-size: .8rem; padding: .5rem .2rem; min-height: 44px; display: inline-flex; align-items: center; }
     .foreword { flex-direction: column; align-items: center; text-align: center; }
     .case-study { padding: 2rem; }
     .mega-stat-row { grid-template-columns: 1fr; }
@@ -786,6 +786,56 @@
     .quote-block { padding: 1.5rem; font-size: 1.1rem; }
     .tm-grid { grid-template-columns: 1fr; }
     .hero-brand img { height: 48px; }
+    /* Tables: horizontal scroll wrapper */
+    .vs-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .vs-table thead, .vs-table tbody, .vs-table tr, .vs-table th, .vs-table td { min-width: 140px; }
+    .action-grid { grid-template-columns: 1fr; }
+    .tool-grid { grid-template-columns: 1fr; }
+    .flavor-grid { grid-template-columns: 1fr; }
+    .icon-stat-row { grid-template-columns: 1fr; }
+    .search-path { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ── RESPONSIVE: MOBILE ── */
+  @media (max-width: 480px) {
+    body { font-size: 15px; }
+    .section { padding: 3rem 1rem; }
+    .floating-nav { padding: .5rem .8rem; flex-wrap: wrap; gap: .5rem; }
+    .nav-brand { width: 100%; justify-content: center; }
+    .nav-brand img { height: 22px; }
+    .nav-brand-text { font-size: .85rem; }
+    .nav-links { width: 100%; justify-content: center; gap: .6rem; }
+    .nav-links a { font-size: .75rem; padding: .4rem .3rem; min-height: 44px; display: inline-flex; align-items: center; }
+    .hero { padding: 1.5rem; }
+    .hero-brand img { height: 40px; }
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .hero-eyebrow { font-size: .9rem; letter-spacing: .2em; }
+    .section-title { font-size: 1.8rem; }
+    .sub-heading { font-size: 1.25rem; }
+    .card { padding: 1.5rem; }
+    .card h3 { font-size: 1.15rem; }
+    .card p { font-size: 1rem; }
+    .quote-block { padding: 1.2rem; font-size: 1rem; }
+    .definition-box { padding: 1.5rem; }
+    .definition-box .term { font-size: 1.5rem; }
+    .info-banner { padding: 1.5rem; }
+    .info-banner h3 { font-size: 1.2rem; }
+    .case-study { padding: 1.5rem; }
+    .case-study h4 { font-size: 1.15rem; }
+    .case-metrics { grid-template-columns: repeat(2, 1fr); }
+    .case-metric .val { font-size: 1.6rem; }
+    .formula { font-size: 1.4rem; }
+    .formula-box { padding: 2rem 1.5rem; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .stat-grid { grid-template-columns: 1fr; }
+    .stat-number { font-size: 2.2rem; }
+    .step-num { width: 40px; height: 40px; font-size: 1rem; }
+    .tool-card { padding: 1.5rem; }
+    .flavor-card { padding: 1.5rem; }
+    .action-card { padding: 1.5rem; }
+    .footer { padding: 3rem 1.5rem; }
+    .vs-table th, .vs-table td { padding: .7rem .8rem; font-size: .9rem; }
   }
 </style>
 </head>
