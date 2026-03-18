@@ -871,7 +871,7 @@
     .fw { flex-direction: column; align-items: flex-start; }
     .footer-inner { flex-direction: column; }
     .footer-legal { text-align: left; }
-    .path { flex-direction: column; align-items: flex-start; }
+    .path { gap: .4rem .5rem; }
     .nav .container { flex-wrap: wrap; justify-content: center; gap: .3rem; }
     .nav-links { gap: .1rem; flex-wrap: wrap; justify-content: center; }
     .nav-links a { font-size: .75rem; padding: .5rem .5rem; }
@@ -882,9 +882,11 @@
     .hero-title { font-size: clamp(2.4rem, 9vw, 3rem); }
     .sect-num { font-size: clamp(3.5rem, 9vw, 5rem); }
     .sect-title { font-size: clamp(1.8rem, 4vw, 2.2rem); }
-    .pull-quote { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+    .pull-quote { font-size: clamp(1.2rem, 2.5vw, 1.5rem); padding: 2rem 0; }
     .formula-text { font-size: clamp(1.4rem, 3.5vw, 2rem); }
     .container { padding: 0 1.2rem; }
+    .def-term { font-size: 1.5rem; }
+    .def-block { padding: 1.8rem 0; }
   }
 
   @media (max-width: 480px) {
@@ -898,7 +900,11 @@
     .hero-title { font-size: clamp(2.2rem, 8vw, 2.6rem); }
     .hero-desc { font-size: 1rem; }
     .sect-title { font-size: 1.8rem; }
-    .pull-quote { font-size: 1.2rem; }
+    .pull-quote { font-size: 1.2rem; padding: 1.5rem 0; margin: 1rem 0; }
+    .path { font-size: .85rem; padding: 1rem; }
+    .def-term { font-size: 1.35rem; }
+    .def-block { padding: 1.5rem 0; margin: 1.5rem 0; }
+    .metric .v { font-size: 1.8rem; }
     .bento-num { font-size: 2.5rem; }
     .case h4 { font-size: 1.15rem; }
     .toc-list { grid-template-columns: 1fr; }
