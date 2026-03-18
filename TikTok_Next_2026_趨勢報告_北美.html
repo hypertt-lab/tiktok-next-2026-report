@@ -580,6 +580,7 @@
     color: var(--text);
   }
   .path-arrow { color: var(--text-dim); }
+  .path-step { display: inline-flex; align-items: center; gap: .5rem; }
 
   /* ── DEFINITION ── */
   .def-block {
@@ -866,7 +867,7 @@
     .flavors { grid-template-columns: 1fr; }
     .bento, .tool-row, .action-row, .tm-row, .flavors { gap: 2px; }
     .metrics { flex-direction: column; }
-    .metric { border-right: none; border-bottom: 1px solid var(--border); padding: 1rem 0; }
+    .metric { border-right: none; border-bottom: 1px solid var(--border); padding: 1rem 0; text-align: center; }
     .metric:last-child { border-bottom: none; }
     .fw { flex-direction: column; align-items: flex-start; }
     .footer-inner { flex-direction: column; }
@@ -1192,18 +1193,16 @@
 
       <h4 class="sh-sm" style="margin-top: 1.5rem;">搜尋路徑</h4>
       <div class="path">
-        <span class="path-node">香水</span><span class="path-arrow">&rarr;</span>
-        <span class="path-node">女士香水</span><span class="path-arrow">&rarr;</span>
-        <span class="path-node">約會之夜</span><span class="path-arrow">&rarr;</span>
-        <span class="path-node">第一次約會</span>
+        <span class="path-node">香水</span>
+        <span class="path-step"><span class="path-arrow">&rarr;</span><span class="path-node">女士香水</span></span>
+        <span class="path-step"><span class="path-arrow">&rarr;</span><span class="path-node">約會之夜</span></span>
+        <span class="path-step"><span class="path-arrow">&rarr;</span><span class="path-node">第一次約會</span></span>
       </div>
       <div class="path">
-        <span class="path-node">香水</span><span class="path-arrow">&rarr;</span>
-        <span class="path-node">工作場合</span>
-        <span class="path-arrow">|</span>
-        <span class="path-node">BookTok</span>
-        <span class="path-arrow">|</span>
-        <span class="path-node">護膚</span>
+        <span class="path-node">香水</span>
+        <span class="path-step"><span class="path-arrow">&rarr;</span><span class="path-node">工作場合</span></span>
+        <span class="path-step"><span class="path-arrow">|</span><span class="path-node">BookTok</span></span>
+        <span class="path-step"><span class="path-arrow">|</span><span class="path-node">護膚</span></span>
       </div>
     </div>
 
